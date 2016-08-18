@@ -8,11 +8,11 @@
  */
 
 
- /**
-  * BEM class
-  * Contains static methods with BEM abstraction to DOM manipulation
-  * @class
-  */
+/**
+ * BEM class
+ * Contains static methods with BEM abstraction to DOM manipulation
+ * @class
+ */
 class BEM {
     /**
      * Helper method to get a node by BEM (Block Element Modifier) description
