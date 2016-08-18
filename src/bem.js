@@ -73,6 +73,10 @@ class BEM {
         let modifierClassNames = '';
 
         for (const i in classNames) {
+            if (!classNames.hasOwnProperty(i)) {
+                continue;
+            }
+
             const className = classNames[i], modifierClassName = `${className}--${modifier}`;
 
             // Discard class names containing "--" (modifier pattern)

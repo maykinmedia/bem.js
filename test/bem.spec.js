@@ -31,11 +31,11 @@ const FIXTURE_BLOCK_ELEMENT_MODIFIED = `
 describe('module', function() {
     it('should export a default', () => {
         expect(BEM).toBeTruthy();
-    })
+    });
 
     it('should export a name', () => {
         expect(BEM2).toBeTruthy();
-    })
+    });
 });
 
 
@@ -146,7 +146,7 @@ describe('BEM', function() {
             setFixtures(FIXTURE_BLOCK_MODIFIED);
             let node = BEM.getBEMNode(BLOCK_NAME, false, MODIFIER_NAME);
             BEM.addModifier(node, MODIFIER_NAME);
-            expect(node.className).toBe(`${BLOCK_NAME}--${MODIFIER_NAME}`)
+            expect(node.className).toBe(`${BLOCK_NAME}--${MODIFIER_NAME}`);
         });
     });
 
