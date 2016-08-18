@@ -2,7 +2,7 @@
  * This module provides BEM (Block Element Modifier) related helper methods
  * These helper methods can be used as an abstraction to talk to the DOM
  * BEM is a CSS methodology separating blocks (block) from elements (__element) and modifiers (--modifier)
- * BEM examples: alert, alert--warning, form__button, form__button-disabled
+ * BEM examples: alert, alert--warning, form__button, form__button--disabled
  * @see https://en.bem.info/methodology/key-concepts/
  * @module
  */
