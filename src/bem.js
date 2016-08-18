@@ -16,7 +16,7 @@
 class BEM {
     /**
      * Helper method to get a node by BEM (Block Element Modifier) description
-     * @param {String} block The outer block of component
+     * @param {String} block The outer block or component
      * @param {String} [element] An optional element within the outer block
      * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
      * @returns {HTMLElement}
@@ -28,7 +28,7 @@ class BEM {
 
     /**
      * Helper method to get multiple nodes by BEM (Block Element Modifier) description
-     * @param {String} block The outer block of component
+     * @param {String} block The outer block or component
      * @param {String} [element] An optional element within the outer block
      * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
      * @returns {NodeList}
@@ -40,7 +40,7 @@ class BEM {
 
     /**
      * Helper method to get a BEM (Block Element Modifier) class name
-     * @param {String} block The outer block of component
+     * @param {String} block The outer block or component
      * @param {String} [element] An optional element within the outer block
      * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
      * @returns {String}
