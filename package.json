@@ -1,0 +1,62 @@
+{
+  "name": "bem.js",
+  "version": "0.0.1",
+  "description": "DOM selection and manipulation using BEM (Block, Element, Modifier).",
+  "main": "dist/bem.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-istanbul-loader": "^0.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-sourcemaps": "^2.0.0-alpha",
+    "jasmine-core": "^2.4.1",
+    "jshint": "^2.9.2",
+    "karma": "^1.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-coverage": "^1.0.0",
+    "karma-es6-shim": "^1.0.0",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-jasmine-ajax": "^0.1.13",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-jspm": "^2.1.0",
+    "karma-spec-reporter": "^0.0.26",
+    "karma-webpack": "^1.7.0",
+    "require-dir": "^0.3.0",
+    "vinyl-paths": "^2.1.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-stream": "^3.2.0"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maykinmedia/bem.js.git"
+  },
+  "keywords": [
+    "BEM",
+    "Block",
+    "Element",
+    "Modifier",
+    "CSS",
+    "DOM"
+  ],
+  "author": "Maykin Media <info@maykinmedia.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maykinmedia/bem.js/issues"
+  },
+  "homepage": "https://github.com/maykinmedia/bem.js#readme"
+}
