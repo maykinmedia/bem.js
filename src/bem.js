@@ -72,11 +72,7 @@ class BEM {
         const classNames = node.className.split(' ');
         let modifierClassNames = '';
 
-        for (const i in classNames) {
-            if (!classNames.hasOwnProperty(i)) {
-                continue;
-            }
-
+        for (const i in classNames) {  // jshint ignore:line
             const className = classNames[i], modifierClassName = `${className}--${modifier}`;
 
             // Discard class names containing "--" (modifier pattern)
