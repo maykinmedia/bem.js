@@ -64,6 +64,33 @@ describe('BEM', function() {
     });
 
 
+    describe('.getBEMNodes()', () => {
+        it('should be able to select blocks', () => {
+            setFixtures(FIXTURE_BLOCK);
+            expect(BEM.getBEMNodes(BLOCK_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME)[0].constructor.name).toBe('HTMLElement');
+        });
+
+        it('should be able to select a modified block', () => {
+            setFixtures(FIXTURE_BLOCK_MODIFIED);
+            expect(BEM.getBEMNodes(BLOCK_NAME, false, MODIFIER_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME, false, MODIFIER_NAME)[0].constructor.name).toBe('HTMLElement');
+        });
+
+        it('should be able to select a block element', () => {
+            setFixtures(FIXTURE_BLOCK_ELEMENT);
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME)[0].constructor.name).toBe('HTMLHeadingElement');
+        });
+
+        it('should be able to select a modified block element', () => {
+            setFixtures(FIXTURE_BLOCK_ELEMENT_MODIFIED);
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME)[0].constructor.name).toBe('HTMLHeadingElement');
+        });
+    });
+
+
     describe('.getBEMClassName()', () => {
         it('should be able to get a block class name', () => {
             expect(BEM.getBEMClassName(BLOCK_NAME)).toBe(BLOCK_NAME);

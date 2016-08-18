@@ -26,6 +26,17 @@ class BEM {
         return document.querySelector(selector);
     }
 
+    /**
+     * Helper method to get multiple nodes by BEM (Block Element Modifier) description
+     * @param {String} block The outer block of component
+     * @param {String} [element] An optional element within the outer block
+     * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
+     * @returns {NodeList}
+     */
+    static getBEMNodes(block, element, modifier) {
+        const selector = `.${BEM.getBEMClassName(block, element, modifier)}`;
+        return document.querySelectorAll(selector);
+    }
 
     /**
      * Helper method to get a BEM (Block Element Modifier) class name
@@ -112,6 +123,7 @@ class BEM {
      * Block/element names are NOT taken into account while matching
      * @param {HTMLElement} node The block/element to check
      * @param {String} modifier The name of the modifier (--name)
+     * @returns {Boolean}
      */
     static hasModifier(node, modifier) {
         const regex = new RegExp(`--${modifier}(?=\\s|$)`, 'g');  // Regex matching specific modifier
