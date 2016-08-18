@@ -77,7 +77,7 @@ class BEM {
             modifierClassNames += `${className}--${modifier} `;
         }
 
-        node.className = `${node.className.trim()} ${modifierClassNames.trim()}`;
+        node.className = `${node.className.trim()} ${modifierClassNames}`.trim();
     }
 
 
@@ -87,7 +87,7 @@ class BEM {
      * @param {String} modifier The name of the modifier (--name)
      */
     static removeModifier(node, modifier) {
-        const regex = new RegExp(`[^^\\s]+?--${modifier}`, 'g');  // Regex matching all class names containing "--" + modifier
+        const regex = new RegExp(`[^^\\s]+?--${modifier}\\s?`, 'g');  // Regex matching all class names containing "--" + modifier
         node.className = node.className.replace(regex, '').trim();
     }
 
