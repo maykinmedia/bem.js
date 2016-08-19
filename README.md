@@ -100,7 +100,7 @@ BEM.hasModifier(node, 'bar')  // false
 Install dev dependencies:
 
 ```sh
-$ gulp build  // make sure you test against the latest build
+$ gulp build  // Make sure you test against the latest build
 $ gulp test
 ```
 
