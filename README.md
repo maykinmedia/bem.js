@@ -18,7 +18,7 @@ Code examples in es6, library is es5 compatible.
 **Selecting an element**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 // HTMLElement matching .block
@@ -41,7 +41,7 @@ BEM.getBEMNodes('block', 'element', 'modifier');
 **Building BEM class names**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 // Returns 'block'
@@ -61,7 +61,7 @@ BEM.getBEMClassName('block', 'element', 'modifier');
 **Adding/removing modifiers**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 // Adding a modifier
@@ -82,7 +82,7 @@ BEM.toggleModifier(node, 'bar');
 **Check if HTMLElement has a modifier**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 let node = BEM.getBEMNode('foo');  // <article class="foo foo--bar"></article>
