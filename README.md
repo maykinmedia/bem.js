@@ -113,7 +113,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 
 **Maykin Media**
 
-* [www.maykinmedia.nl](https://www.maykinmedia.nl/)
+* [maykinmedia.nl](https://www.maykinmedia.nl/)
 * [github/maykinmedia](https://github.com/maykinmedia)
 * [twitter/maykinmedia](http://twitter.com/maykinmedia)
 
