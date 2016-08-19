@@ -99,6 +99,7 @@ BEM.hasModifier(node, 'bar')  // false
 
 ```sh
 $ gulp build  // Make sure you test against the latest build
+$ gulp lint   // Check for linting errors
 $ gulp test
 ```
 
