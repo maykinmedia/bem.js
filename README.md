@@ -106,7 +106,7 @@ $ gulp test
 
 ## Contributing
 
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/maykinmedia/bem.js/issues)
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/maykinmedia/bem.js/issues).
 
 ## Author
 
@@ -118,5 +118,5 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 
 ## License
 
-Copyright © 2016 [Maykin Media]()
+Copyright © 2016 [Maykin Media](https://www.maykinmedia.nl/)
 Licensed under the MIT license.
