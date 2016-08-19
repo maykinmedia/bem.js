@@ -12,7 +12,7 @@ webpackConfig.module.loaders.push(
 
 
 // The main configuration
-module.exports = function(config) {
+var configuration = function(config) {
     config.set({
         frameworks: [
             'jasmine-jquery',
@@ -43,5 +43,8 @@ module.exports = function(config) {
         reporters: ['spec', 'coverage'],
 
         browsers: ['Chrome', 'Firefox'],
-    })
+    });
 }
+
+
+module.exports = configuration;

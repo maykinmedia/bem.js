@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/bem.js',
+    entry: ['./src/bem.js'],
 
     output: {
         filename: 'bem.js',

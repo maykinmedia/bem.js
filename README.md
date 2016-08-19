@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maykinmedia/bem.js.svg?branch=1.0)](https://travis-ci.org/maykinmedia/bem.js)
+
 # bem.js
 
 > DOM selection and manipulation using BEM (Block, Element, Modifier).
@@ -7,7 +9,7 @@
 Install with [npm](https://www.npmjs.com/)
 
 ```sh
-$ npm i bem.js --save-dev
+$ npm i bem.js --save
 ```
 
 ## Usage 
@@ -18,7 +20,7 @@ Code examples in es6, library is es5 compatible.
 **Selecting an element**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 // HTMLElement matching .block
@@ -41,7 +43,7 @@ BEM.getBEMNodes('block', 'element', 'modifier');
 **Building BEM class names**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 // Returns 'block'
@@ -61,7 +63,7 @@ BEM.getBEMClassName('block', 'element', 'modifier');
 **Adding/removing modifiers**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 // Adding a modifier
@@ -82,7 +84,7 @@ BEM.toggleModifier(node, 'bar');
 **Check if HTMLElement has a modifier**
 
 ```js
-import BEM from 'BEM';
+import BEM from 'bem.js';
 
 
 let node = BEM.getBEMNode('foo');  // <article class="foo foo--bar"></article>
@@ -97,10 +99,9 @@ BEM.hasModifier(node, 'bar')  // false
 
 ## Running tests
 
-Install dev dependencies:
-
 ```sh
 $ gulp build  // Make sure you test against the latest build
+$ gulp lint   // Check for linting errors
 $ gulp test
 ```
 
@@ -112,7 +113,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 
 **Maykin Media**
 
-* [www.maykinmedia.nl](https://www.maykinmedia.nl/)
+* [maykinmedia.nl](https://www.maykinmedia.nl/)
 * [github/maykinmedia](https://github.com/maykinmedia)
 * [twitter/maykinmedia](http://twitter.com/maykinmedia)
 
