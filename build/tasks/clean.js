@@ -5,7 +5,7 @@ var vinylPaths = require('vinyl-paths');
 
 
 /**
- * Clean output
+ * Clean output (dist) directory
  */
 gulp.task('clean', function() {
     return gulp.src([paths.output])
