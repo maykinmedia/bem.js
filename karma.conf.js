@@ -12,7 +12,7 @@ webpackConfig.module.loaders.push(
 
 
 // The main configuration
-module.exports = function(config) {
+var configuration = function(config) {
     config.set({
         frameworks: [
             'jasmine-jquery',
@@ -42,6 +42,23 @@ module.exports = function(config) {
 
         reporters: ['spec', 'coverage'],
 
-        browsers: ['Chrome', 'Firefox'],
-    })
+        browsers: ['Chrome'],
+
+        customLaunchers: {
+            Chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+    });
 }
+
+
+if (process.env.TRAVIS) {
+    configuration.browsers = ['Chrome_travis_ci'];
+
+    console.log(configuration.browsers);
+}
+
+
+module.exports = configuration;

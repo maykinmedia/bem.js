@@ -1,4 +1,5 @@
-import BEM, { BEM as BEM2 } from 'BEM';
+import BEM, { BEM as BEM2 } from 'bem';
+
 
 
 const BLOCK_NAME = 'article';
