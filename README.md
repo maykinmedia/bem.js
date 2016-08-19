@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maykinmedia/bem.js.svg?branch=1.0)](https://travis-ci.org/maykinmedia/bem.js)
+
 # bem.js
 
 > DOM selection and manipulation using BEM (Block, Element, Modifier).
