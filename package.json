@@ -39,7 +39,7 @@
     "webpack-stream": "^3.2.0"
   },
   "scripts": {
-    "test": "gulp build && gulp test"
+    "test": "gulp lint && gulp test"
   },
   "repository": {
     "type": "git",
