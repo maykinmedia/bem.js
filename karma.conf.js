@@ -43,21 +43,7 @@ var configuration = function(config) {
         reporters: ['spec', 'coverage'],
 
         browsers: ['Chrome', 'Firefox'],
-
-        customLaunchers: {
-            Chrome_travis_ci: {
-                base: 'Chrome',
-                flags: ['--no-sandbox']
-            }
-        },
     });
-}
-
-
-if (process.env.TRAVIS) {
-    configuration.browsers = ['Chrome_travis_ci'];
-
-    console.log(configuration.browsers);
 }
 
 
