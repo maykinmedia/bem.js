@@ -9,7 +9,7 @@
 Install with [npm](https://www.npmjs.com/)
 
 ```sh
-$ npm i bem.js --save-dev
+$ npm i bem.js --save
 ```
 
 ## Usage 
