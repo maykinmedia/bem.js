@@ -1,5 +1,7 @@
 sudo: required  # We need the non-docker infrastructure for now
 language: node_js
+node_js:
+ - node
 
 before_install:
  - export DISPLAY=:99.0
