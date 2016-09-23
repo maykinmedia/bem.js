@@ -23,20 +23,26 @@ Code examples in es6, library is es5 compatible.
 import BEM from 'bem.js';
 
 
-// HTMLElement matching .block
+// Returns HTMLElement matching .block
 BEM.getBEMNode('block');
 
-// HTMLElement matching .block--modifier
+// Returns HTMLElement matching .block--modifier
 BEM.getBEMNode('block', false, 'modifier');
 
-// HTMLElement matching .block__element
+// Returns HTMLElement matching .block__element
 BEM.getBEMNode('block', 'element');
 
-// HTMLElement matching .block__element--modifier
+// Returns HTMLElement matching .block__element--modifier
 BEM.getBEMNode('block', 'element', 'modifier');
 
-// NodeList with HTMLElements matching .block__element--modifier
+// Returns NodeList with HTMLElements matching .block__element--modifier
 BEM.getBEMNodes('block', 'element', 'modifier');
+
+// Returns HTMLElement matching .block__element--modifier, child of node
+BEM.getBEMNode(node, 'block', 'element', 'modifier');
+
+// Returns NodeList with HTMLElements matching .block__element--modifier, children of node
+BEM.getBEMNode(node, 'block', 'element', 'modifier');
 ```
 
 
@@ -74,7 +80,7 @@ BEM.addModifier(node, 'bar');  // node.className is now 'foo foo--bar'
 BEM.addModifier(node, 'baz');  // node.className is now 'foo foo--bar foo--baz'
 
 // Removing a modifier
-BEM.addModifier(node, 'bar');  // node.className is now 'foo foo--baz'
+BEM.removeModifier(node, 'bar');  // node.className is now 'foo foo--baz'
 
 // Toggle a modifier
 BEM.toggleModifier(node, 'bar');
@@ -102,7 +108,7 @@ BEM.hasModifier(node, 'bar')  // false
 ```sh
 $ gulp build  // Make sure you test against the latest build
 $ gulp lint   // Check for linting errors
-$ gulp test
+$ gulp test   // Run the tests
 ```
 
 ## Contributing
