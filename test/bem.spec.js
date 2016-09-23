@@ -2,11 +2,18 @@ import BEM, { BEM as BEM2 } from 'bem';
 
 
 
-const BLOCK_NAME = 'article';
+const BLOCK_NAME = 'block';
 
-const ELEMENT_NAME = 'title';
+const ELEMENT_NAME = 'element';
 
-const MODIFIER_NAME = 'active';
+const MODIFIER_NAME = 'modifier';
+
+const CHILD_BLOCK_NAME = 'child-block';
+
+const CHILD_ELEMENT_NAME = 'child-element';
+
+const CHILD_MODIFIER_NAME = 'child-modifier';
+
 
 const FIXTURE_BLOCK = `
     <article class="${BLOCK_NAME}"></article>
@@ -27,6 +34,49 @@ const FIXTURE_BLOCK_ELEMENT_MODIFIED = `
         <h1 class="${BLOCK_NAME}__${ELEMENT_NAME}--${MODIFIER_NAME}"></h1>
     </article>
 `;
+
+const FIXTURE_CHILD_BLOCK = `
+    <article class="${BLOCK_NAME}">
+        <section class="${BLOCK_NAME}"></section>
+        <img class="${CHILD_BLOCK_NAME}" />
+    </article>
+`;
+
+const FIXTURE_CHILD_BLOCK_MODIFIED = `
+    <article class="${BLOCK_NAME}">
+        <section class="${BLOCK_NAME}--${MODIFIER_NAME}"></section>
+        <img class="${CHILD_BLOCK_NAME}--${MODIFIER_NAME}" />
+    </article>
+`;
+
+const FIXTURE_CHILD_BLOCK_ELEMENT = `
+    <article class="${BLOCK_NAME}">
+        <section class="${BLOCK_NAME}--${MODIFIER_NAME}">
+            <span class="${BLOCK_NAME}__${CHILD_ELEMENT_NAME}"></span>
+        </section>
+
+        <figure class="${CHILD_BLOCK_NAME}">
+            <span class="${CHILD_BLOCK_NAME}__${ELEMENT_NAME}"></span>
+            <img class="${CHILD_BLOCK_NAME}__${CHILD_ELEMENT_NAME}" />
+        </figure>
+    </article>
+`;
+
+const FIXTURE_CHILD_BLOCK_ELEMENT_MODIFIED = `
+    <article class="${BLOCK_NAME}">
+        <section class="${BLOCK_NAME}--${MODIFIER_NAME}">
+            <span class="${BLOCK_NAME}__${ELEMENT_NAME}--${MODIFIER_NAME}"></span>
+            <span class="${CHILD_BLOCK_NAME}__${ELEMENT_NAME}--${MODIFIER_NAME}"></span>
+            <span class="${CHILD_BLOCK_NAME}__${CHILD_ELEMENT_NAME}--${MODIFIER_NAME}"></span>
+
+        </section>
+
+        <figure class="${CHILD_BLOCK_NAME}">
+            <img class="${CHILD_BLOCK_NAME}__${CHILD_ELEMENT_NAME}--${CHILD_MODIFIER_NAME}" />
+        </figure>
+    </article>
+`;
+
 
 
 describe('module', function() {
@@ -88,6 +138,64 @@ describe('BEM', function() {
             setFixtures(FIXTURE_BLOCK_ELEMENT_MODIFIED);
             expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME).constructor.name).toBe('NodeList');
             expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME)[0].constructor.name).toBe('HTMLHeadingElement');
+        });
+    });
+
+
+    describe('.getChildBEMNode()', () => {
+        it('should be able to select a child block', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME).constructor.name).toBe('HTMLImageElement');
+        });
+
+        it('should be able to select a modified child block', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK_MODIFIED);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME).constructor.name).toBe('HTMLImageElement');
+        });
+
+        it('should be able to select a child block element', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME).constructor.name).toBe('HTMLImageElement');
+        });
+
+        it('should be able to select a modified child block element', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT_MODIFIED);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME).constructor.name).toBe('HTMLImageElement');
+        });
+    });
+
+
+    describe('.getChildBEMNodes()', () => {
+        it('should be able to select a child block', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME)[0].constructor.name).toBe('HTMLImageElement');
+        });
+
+        it('should be able to select a modified child block', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK_MODIFIED);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME)[0].constructor.name).toBe('HTMLImageElement');
+        });
+
+        it('should be able to select a child block element', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME)[0].constructor.name).toBe('HTMLImageElement');
+        });
+
+        it('should be able to select a modified child block element', () => {
+            setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT_MODIFIED);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME).constructor.name).toBe('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME)[0].constructor.name).toBe('HTMLImageElement');
         });
     });
 
