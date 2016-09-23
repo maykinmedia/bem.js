@@ -39,10 +39,10 @@ BEM.getBEMNode('block', 'element', 'modifier');
 BEM.getBEMNodes('block', 'element', 'modifier');
 
 // Returns HTMLElement matching .block__element--modifier, child of node
-BEM.getBEMNode(node, 'block', 'element', 'modifier');
+BEM.getChildBEMNode(node, 'block', 'element', 'modifier');
 
 // Returns NodeList with HTMLElements matching .block__element--modifier, children of node
-BEM.getBEMNode(node, 'block', 'element', 'modifier');
+BEM.getChildBEMNodes(node, 'block', 'element', 'modifier');
 ```
 
 
