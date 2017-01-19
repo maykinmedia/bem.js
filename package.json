@@ -1,6 +1,6 @@
 {
   "name": "bem.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "DOM selection and manipulation using BEM (Block, Element, Modifier).",
   "main": "dist/bem.js",
   "directories": {
