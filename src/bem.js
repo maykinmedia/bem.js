@@ -16,9 +16,9 @@
 class BEM {
     /**
      * Get a node by BEM (Block Element Modifier) description
-     * @param {String} block The outer block or component
-     * @param {String} [element] An optional element within the outer block
-     * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
+     * @param {string} block The outer block or component
+     * @param {string} [element] An optional element within the outer block
+     * @param {string} [modifier] An optional modifier or (e.g. state or theme) for a block/element
      * @returns {HTMLElement}
      */
     static getBEMNode(block, element, modifier) {
@@ -28,9 +28,9 @@ class BEM {
 
     /**
      * Get multiple nodes by BEM (Block Element Modifier) description
-     * @param {String} block The outer block or component
-     * @param {String} [element] An optional element within the outer block
-     * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
+     * @param {string} block The outer block or component
+     * @param {string} [element] An optional element within the outer block
+     * @param {string} [modifier] An optional modifier or (e.g. state or theme) for a block/element
      * @returns {NodeList}
      */
     static getBEMNodes(block, element, modifier) {
@@ -41,9 +41,9 @@ class BEM {
     /**
      * Get a child node by BEM (Block Element Modifier) description
      * @param {HTMLElement} node The parent node
-     * @param {String} block The outer block or component
-     * @param {String} [element] An optional element within the outer block
-     * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
+     * @param {string} block The outer block or component
+     * @param {string} [element] An optional element within the outer block
+     * @param {string} [modifier] An optional modifier or (e.g. state or theme) for a block/element
      * @returns {HTMLElement}
      */
     static getChildBEMNode(node, block, element, modifier) {
@@ -54,9 +54,9 @@ class BEM {
     /**
      * Get a child node by BEM (Block Element Modifier) description
      * @param {HTMLElement} node The parent node
-     * @param {String} block The outer block or component
-     * @param {String} [element] An optional element within the outer block
-     * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
+     * @param {string} block The outer block or component
+     * @param {string} [element] An optional element within the outer block
+     * @param {string} [modifier] An optional modifier or (e.g. state or theme) for a block/element
      * @returns {HTMLElement}
      */
     static getChildBEMNodes(node, block, element, modifier) {
@@ -66,10 +66,10 @@ class BEM {
 
     /**
      * Get a BEM (Block Element Modifier) class name
-     * @param {String} block The outer block or component
-     * @param {String} [element] An optional element within the outer block
-     * @param {String} [modifier] An optional modifier or (e.g. state or theme) for a block/element
-     * @returns {String}
+     * @param {string} block The outer block or component
+     * @param {string} [element] An optional element within the outer block
+     * @param {string} [modifier] An optional modifier or (e.g. state or theme) for a block/element
+     * @returns {string}
      */
     static getBEMClassName(block, element, modifier) {
         let className = block;
@@ -92,7 +92,7 @@ class BEM {
      * Class names containing "--" (modifier pattern) are discarded
      * Double class names are prevented
      * @param {HTMLElement} node The block/element to append the class name to (block, block__element)
-     * @param {String} modifier The name of the modifier (--name)
+     * @param {string} modifier The name of the modifier (--name)
      */
     static addModifier(node, modifier) {
         let classNames = node.className.split(' '),
@@ -126,7 +126,7 @@ class BEM {
     /**
      * Remove all class names with a specific modifier (--modifier) from a BEM (Block Element Modifier) element
      * @param {HTMLElement} node The block/element to remove the class names from (block, block__element)
-     * @param {String} modifier The name of the modifier (--name)
+     * @param {string} modifier The name of the modifier (--name)
      */
     static removeModifier(node, modifier) {
         let regex = new RegExp(`[^^\\s]+?--${modifier}\\s?`, 'g');  // Regex matching all class names containing "--" + modifier
@@ -138,7 +138,7 @@ class BEM {
      * Toggles between addModifier() and removeModifier() based on the presence of modifier (--modifier)
      * Block/element names are NOT taken into account while matching
      * @param {HTMLElement} node The block/element to remove the class names from (block, block__element)
-     * @param {String} modifier The name of the modifier (--name)
+     * @param {string} modifier The name of the modifier (--name)
      */
     static toggleModifier(node, modifier) {
         if (BEM.hasModifier(node, modifier)) {
@@ -153,8 +153,8 @@ class BEM {
      * Returns whether node has modifier (--modifier)
      * Block/element names are NOT taken into account while matching
      * @param {HTMLElement} node The block/element to check
-     * @param {String} modifier The name of the modifier (--name)
-     * @returns {Boolean}
+     * @param {string} modifier The name of the modifier (--name)
+     * @returns {boolean}
      */
     static hasModifier(node, modifier) {
         let regex = new RegExp(`--${modifier}(?=\\s|$)`, 'g');  // Regex matching specific modifier
