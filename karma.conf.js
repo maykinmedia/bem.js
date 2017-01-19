@@ -1,3 +1,4 @@
+var paths = require('./build/paths');
 var webpackConfig = require('./webpack.config.js');
 
 
@@ -31,7 +32,11 @@ var configuration = function(config) {
         },
 
         coverageReporter: {
-            dir: 'build/reports/coverage',
+            reporters: [
+                { type: 'cobertura', dir: paths.coverageDir, subdir: '.', file: 'coverage.xml' },
+                { type: 'html', dir: paths.coverageDir, subdir: 'html' },
+                { type: 'text' }
+            ]
         },
 
         webpack: webpackConfig,

@@ -1,4 +1,4 @@
-import BEM, { BEM as BEM2 } from 'bem';
+import BEM, { BEM as BEM2 } from '../src/bem.js';
 
 
 

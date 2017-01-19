@@ -5,9 +5,11 @@ var vinylPaths = require('vinyl-paths');
 
 
 /**
- * Clean output (dist) directory
+ * Clean task
+ * Run using "gulp clean"
+ * Cleans output directory
  */
 gulp.task('clean', function() {
-    return gulp.src([paths.output])
+    gulp.src([paths.output])
         .pipe(vinylPaths(del));
 });

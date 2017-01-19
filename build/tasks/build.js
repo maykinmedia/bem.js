@@ -1,18 +1,16 @@
 var gulp = require('gulp');
-var sourcemaps = require('gulp-sourcemaps');
-var babel = require('gulp-babel');
-var concat = require('gulp-concat');
+var webpack = require('webpack-stream');
 var paths = require('../paths');
+var webpackConfig = require('../../webpack.config.js');
 
 
 /**
- * Build the project
+ * Build task
+ * Run using "gulp build"
+ * Runs webpack to compile javascript
  */
-gulp.task('build', ['clean'], function () {
-    return gulp.src(paths.source)
-        .pipe(sourcemaps.init())
-        .pipe(babel())
-        .pipe(concat(paths.packageName))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(paths.output));
+gulp.task('build', function() {
+    gulp.src('')
+        .pipe(webpack(webpackConfig))
+        .pipe(gulp.dest(webpackConfig.output.path));
 });

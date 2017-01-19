@@ -4,7 +4,9 @@ var paths = require('../paths');
 
 
 /**
- * Lint sources and tests
+ * Lint task
+ * Run using "gulp lint"
+ * Lints javascript code
  */
 gulp.task('lint', function() {
     return gulp.src([paths.source, paths.tests])

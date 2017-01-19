@@ -1,10 +1,17 @@
+var paths = require('./build/paths');
+var webpack = require('webpack');
+var nodeExternals = require('webpack-node-externals');
+
+
 module.exports = {
-    entry: ['./src/bem.js'],
+    entry: './src/' + paths.packageName,
+    externals: [nodeExternals()],
+    target: 'node',
 
     output: {
-        filename: 'bem.js',
-        path: __dirname + '/dist/',
-        publicPath: '/static/'
+        filename: paths.packageName,
+        libraryTarget: 'umd',
+        path: __dirname + '/' + paths.output,
     },
 
     module: {
@@ -17,9 +24,7 @@ module.exports = {
         ]
     },
 
-    resolve: {
-        root: [
-            __dirname + '/src/',
-        ]
-    }
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin()
+    ]
 };

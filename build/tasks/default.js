@@ -4,6 +4,8 @@ var paths = require('../paths');
 
 
 /**
- * Start default task (build project)
+ * Default task
+ * Run using "gulp"
+ * Runs all tasks
  */
-gulp.task('default', ['build']);
+gulp.task('default', ['clean', 'build', 'lint', 'test']);
