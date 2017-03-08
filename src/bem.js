@@ -1,4 +1,7 @@
-/**
+import "babel-polyfill";
+
+
+/*
  * This module provides BEM (Block Element Modifier) related methods
  * These methods can be used as an abstraction to talk to the DOM
  * BEM is a CSS methodology separating blocks (block) from elements (__element) and modifiers (--modifier)
