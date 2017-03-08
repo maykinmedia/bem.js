@@ -95,31 +95,20 @@ class BEM {
      * @param {string} modifier The name of the modifier (--name)
      */
     static addModifier(node, modifier) {
-        let classNames = node.className.split(' '),
-            modifierClassNames = '';
-
-        for (let i in classNames) {
-            if (!classNames.hasOwnProperty(i)) {
-                continue;
-            }
-
-            let className = classNames[i];
-            let modifierClassName = `${className}--${modifier}`;
-
+        for (let classListItem of node.classList) {
             // Discard class names containing "--" (modifier pattern)
-            if (className.match('--')) {
+            if (classListItem.match('--')) {
                 continue;
             }
+
+            let modifierClassName = `${classListItem}--${modifier}`;
 
             // Prevent double class names
-            if (node.className.match(modifierClassName)) {
+            if (node.classList.contains(modifierClassName)) {
                 continue;
             }
-
-            modifierClassNames += `${className}--${modifier} `;
+            node.classList.add(modifierClassName);
         }
-
-        node.className = `${node.className.trim()} ${modifierClassNames}`.trim();
     }
 
 

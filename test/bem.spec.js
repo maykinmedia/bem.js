@@ -20,7 +20,7 @@ const FIXTURE_BLOCK = `
 `;
 
 const FIXTURE_BLOCK_MODIFIED = `
-    <article class="${BLOCK_NAME}--${MODIFIER_NAME}"></article>
+    <article class="${BLOCK_NAME} ${BLOCK_NAME}--${MODIFIER_NAME}"></article>
 `;
 
 const FIXTURE_BLOCK_ELEMENT = `
@@ -75,6 +75,10 @@ const FIXTURE_CHILD_BLOCK_ELEMENT_MODIFIED = `
             <img class="${CHILD_BLOCK_NAME}__${CHILD_ELEMENT_NAME}--${CHILD_MODIFIER_NAME}" />
         </figure>
     </article>
+`;
+
+const FIXTURE_BROKEN_WHITESPACE_BLOCK = `
+    <article class="${BLOCK_NAME} "></article>
 `;
 
 
@@ -255,7 +259,14 @@ describe('BEM', function() {
             setFixtures(FIXTURE_BLOCK_MODIFIED);
             let node = BEM.getBEMNode(BLOCK_NAME, false, MODIFIER_NAME);
             BEM.addModifier(node, MODIFIER_NAME);
-            expect(node.className).toBe(`${BLOCK_NAME}--${MODIFIER_NAME}`);
+            expect(node.className).toBe(`${BLOCK_NAME} ${BLOCK_NAME}--${MODIFIER_NAME}`);
+        });
+
+        it('should ignore trailig whitespace block (issue #4)', () => {
+            setFixtures(FIXTURE_BROKEN_WHITESPACE_BLOCK);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            BEM.addModifier(node, MODIFIER_NAME);
+            expect(node.className).toBe(`${BLOCK_NAME} ${BLOCK_NAME}--${MODIFIER_NAME}`);
         });
     });
 
