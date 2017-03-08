@@ -1,12 +1,14 @@
 {
   "name": "bem.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "DOM selection and manipulation using BEM (Block, Element, Modifier).",
   "main": "dist/bem.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel-polyfill": "^6.23.0"
+  },
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-istanbul-loader": "^0.1.0",
