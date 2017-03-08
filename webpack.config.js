@@ -1,12 +1,9 @@
 var paths = require('./build/paths');
 var webpack = require('webpack');
-var nodeExternals = require('webpack-node-externals');
 
 
 module.exports = {
     entry: './src/' + paths.packageName,
-    externals: [nodeExternals()],
-    target: 'node',
 
     output: {
         filename: paths.packageName,
