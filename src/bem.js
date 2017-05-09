@@ -95,20 +95,21 @@ class BEM {
      * @param {string} modifier The name of the modifier (--name)
      */
     static addModifier(node, modifier) {
-        for (let classListItem of node.classList) {
+        node.classList.forEach(classListItem => {
             // Discard class names containing "--" (modifier pattern)
             if (classListItem.match('--')) {
-                continue;
+                return;
             }
 
             let modifierClassName = `${classListItem}--${modifier}`;
 
             // Prevent double class names
             if (node.classList.contains(modifierClassName)) {
-                continue;
+                return;
             }
+
             node.classList.add(modifierClassName);
-        }
+        });
     }
 
 
