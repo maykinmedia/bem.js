@@ -6,9 +6,7 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "babel-polyfill": "^6.23.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-istanbul-loader": "^0.1.0",

@@ -1,6 +1,3 @@
-import "babel-polyfill";
-
-
 /*
  * This module provides BEM (Block Element Modifier) related methods
  * These methods can be used as an abstraction to talk to the DOM
