@@ -2,6 +2,6 @@
    "comments":false,
    "compact":true,
    "presets":[
-      "es2015"
+      "latest"
    ]
 }
