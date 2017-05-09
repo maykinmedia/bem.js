@@ -95,7 +95,7 @@ class BEM {
      * @param {string} modifier The name of the modifier (--name)
      */
     static addModifier(node, modifier) {
-        node.classList.forEach(classListItem => {
+        [].forEach.call(node.classList, classListItem => {
             // Discard class names containing "--" (modifier pattern)
             if (classListItem.match('--')) {
                 return;
