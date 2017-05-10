@@ -99,22 +99,22 @@ describe('BEM', function() {
     describe('.getBEMNode()', () => {
         it('should be able to select a block', () => {
             setFixtures(FIXTURE_BLOCK);
-            expect(BEM.getBEMNode(BLOCK_NAME).constructor.name).toBe('HTMLElement');
+            expect(BEM.getBEMNode(BLOCK_NAME).constructor.toString()).toContain('HTMLElement');
         });
 
         it('should be able to select a modified block', () => {
             setFixtures(FIXTURE_BLOCK_MODIFIED);
-            expect(BEM.getBEMNode(BLOCK_NAME, false, MODIFIER_NAME).constructor.name).toBe('HTMLElement');
+            expect(BEM.getBEMNode(BLOCK_NAME, false, MODIFIER_NAME).constructor.toString()).toContain('HTMLElement');
         });
 
         it('should be able to select a block element', () => {
             setFixtures(FIXTURE_BLOCK_ELEMENT);
-            expect(BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME).constructor.name).toBe('HTMLHeadingElement');
+            expect(BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME).constructor.toString()).toContain('HTMLHeadingElement');
         });
 
         it('should be able to select a modified block element', () => {
             setFixtures(FIXTURE_BLOCK_ELEMENT_MODIFIED);
-            expect(BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME).constructor.name).toBe('HTMLHeadingElement');
+            expect(BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME).constructor.toString()).toContain('HTMLHeadingElement');
         });
     });
 
@@ -122,26 +122,26 @@ describe('BEM', function() {
     describe('.getBEMNodes()', () => {
         it('should be able to select blocks', () => {
             setFixtures(FIXTURE_BLOCK);
-            expect(BEM.getBEMNodes(BLOCK_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getBEMNodes(BLOCK_NAME)[0].constructor.name).toBe('HTMLElement');
+            expect(BEM.getBEMNodes(BLOCK_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME)[0].constructor.toString()).toContain('HTMLElement');
         });
 
         it('should be able to select a modified block', () => {
             setFixtures(FIXTURE_BLOCK_MODIFIED);
-            expect(BEM.getBEMNodes(BLOCK_NAME, false, MODIFIER_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getBEMNodes(BLOCK_NAME, false, MODIFIER_NAME)[0].constructor.name).toBe('HTMLElement');
+            expect(BEM.getBEMNodes(BLOCK_NAME, false, MODIFIER_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME, false, MODIFIER_NAME)[0].constructor.toString()).toContain('HTMLElement');
         });
 
         it('should be able to select a block element', () => {
             setFixtures(FIXTURE_BLOCK_ELEMENT);
-            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME)[0].constructor.name).toBe('HTMLHeadingElement');
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME)[0].constructor.toString()).toContain('HTMLHeadingElement');
         });
 
         it('should be able to select a modified block element', () => {
             setFixtures(FIXTURE_BLOCK_ELEMENT_MODIFIED);
-            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME)[0].constructor.name).toBe('HTMLHeadingElement');
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getBEMNodes(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME)[0].constructor.toString()).toContain('HTMLHeadingElement');
         });
     });
 
@@ -150,25 +150,25 @@ describe('BEM', function() {
         it('should be able to select a child block', () => {
             setFixtures(FIXTURE_CHILD_BLOCK);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME).constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME).constructor.toString()).toContain('HTMLImageElement');
         });
 
         it('should be able to select a modified child block', () => {
             setFixtures(FIXTURE_CHILD_BLOCK_MODIFIED);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME).constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME).constructor.toString()).toContain('HTMLImageElement');
         });
 
         it('should be able to select a child block element', () => {
             setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME).constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME).constructor.toString()).toContain('HTMLImageElement');
         });
 
         it('should be able to select a modified child block element', () => {
             setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT_MODIFIED);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME).constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNode(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME).constructor.toString()).toContain('HTMLImageElement');
         });
     });
 
@@ -177,29 +177,29 @@ describe('BEM', function() {
         it('should be able to select a child block', () => {
             setFixtures(FIXTURE_CHILD_BLOCK);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME)[0].constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME)[0].constructor.toString()).toContain('HTMLImageElement');
         });
 
         it('should be able to select a modified child block', () => {
             setFixtures(FIXTURE_CHILD_BLOCK_MODIFIED);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME)[0].constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, false, MODIFIER_NAME)[0].constructor.toString()).toContain('HTMLImageElement');
         });
 
         it('should be able to select a child block element', () => {
             setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME)[0].constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME)[0].constructor.toString()).toContain('HTMLImageElement');
         });
 
         it('should be able to select a modified child block element', () => {
             setFixtures(FIXTURE_CHILD_BLOCK_ELEMENT_MODIFIED);
             let node = BEM.getBEMNode(BLOCK_NAME);
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME).constructor.name).toBe('NodeList');
-            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME)[0].constructor.name).toBe('HTMLImageElement');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME).constructor.toString()).toContain('NodeList');
+            expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME)[0].constructor.toString()).toContain('HTMLImageElement');
         });
     });
 
@@ -304,12 +304,12 @@ describe('BEM', function() {
             expect(BEM.addModifier).toHaveBeenCalled();
             node = BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME);
 
-            expect(node.constructor.name).toBe('HTMLHeadingElement');
+            expect(node.constructor.toString()).toContain('HTMLHeadingElement');
 
             BEM.toggleModifier(node, MODIFIER_NAME);
             expect(BEM.removeModifier).toHaveBeenCalled();
             node = BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME);
-            expect(node.constructor.name).toBe('HTMLHeadingElement');
+            expect(node.constructor.toString()).toContain('HTMLHeadingElement');
         });
     });
 
