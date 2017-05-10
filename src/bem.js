@@ -1,6 +1,3 @@
-import "babel-polyfill";
-
-
 /*
  * This module provides BEM (Block Element Modifier) related methods
  * These methods can be used as an abstraction to talk to the DOM
@@ -98,20 +95,21 @@ class BEM {
      * @param {string} modifier The name of the modifier (--name)
      */
     static addModifier(node, modifier) {
-        for (let classListItem of node.classList) {
+        [].forEach.call(node.classList, classListItem => {
             // Discard class names containing "--" (modifier pattern)
             if (classListItem.match('--')) {
-                continue;
+                return;
             }
 
             let modifierClassName = `${classListItem}--${modifier}`;
 
             // Prevent double class names
             if (node.classList.contains(modifierClassName)) {
-                continue;
+                return;
             }
+
             node.classList.add(modifierClassName);
-        }
+        });
     }
 
 
