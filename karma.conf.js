@@ -32,13 +32,13 @@ module.exports = function(config) {
         ],
 
         files: [
-            'test/*.spec.js',
+            'test/*.spec.js'
         ],
 
         preprocessors: {
             'test/*.spec.js': [
                 'webpack'
-            ],
+            ]
         },
 
         coverageReporter: {
