@@ -93,7 +93,7 @@ class BEM {
      * Double class names are prevented
      * @param {HTMLElement} node The block/element to append the class name to (block, block__element)
      * @param {string} modifier The name of the modifier (--name)
-     * @param {boolean} [exp] Optional: If true: add the modifier
+     * @param {boolean} [exp=true] Optional: If true: add the modifier
      */
     static addModifier(node, modifier, exp=true) {
         if (!exp) {
@@ -122,7 +122,7 @@ class BEM {
      * Remove all class names with a specific modifier (--modifier) from a BEM (Block Element Modifier) element
      * @param {HTMLElement} node The block/element to remove the class names from (block, block__element)
      * @param {string} modifier The name of the modifier (--name)
-     * @param {boolean} [exp] Optional: If true: remove the modifier
+     * @param {boolean} [exp=true] Optional: If true: remove the modifier
      */
     static removeModifier(node, modifier, exp=true) {
         if (!exp) {
