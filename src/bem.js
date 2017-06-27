@@ -93,8 +93,13 @@ class BEM {
      * Double class names are prevented
      * @param {HTMLElement} node The block/element to append the class name to (block, block__element)
      * @param {string} modifier The name of the modifier (--name)
+     * @param {boolean} [exp=true] Optional: If true: add the modifier
      */
-    static addModifier(node, modifier) {
+    static addModifier(node, modifier, exp=true) {
+        if (!exp) {
+            return;
+        }
+
         [].forEach.call(node.classList, classListItem => {
             // Discard class names containing "--" (modifier pattern)
             if (classListItem.match('--')) {
@@ -117,8 +122,13 @@ class BEM {
      * Remove all class names with a specific modifier (--modifier) from a BEM (Block Element Modifier) element
      * @param {HTMLElement} node The block/element to remove the class names from (block, block__element)
      * @param {string} modifier The name of the modifier (--name)
+     * @param {boolean} [exp=true] Optional: If true: remove the modifier
      */
-    static removeModifier(node, modifier) {
+    static removeModifier(node, modifier, exp=true) {
+        if (!exp) {
+            return;
+        }
+
         let regex = new RegExp(`[^^\\s]+?--${modifier}\\s?`, 'g');  // Regex matching all class names containing "--" + modifier
         node.className = node.className.replace(regex, '').trim();
     }
@@ -129,13 +139,14 @@ class BEM {
      * Block/element names are NOT taken into account while matching
      * @param {HTMLElement} node The block/element to remove the class names from (block, block__element)
      * @param {string} modifier The name of the modifier (--name)
+     * @param {boolean} [exp] Optional: If true: add the modifier, if false: remove the modifier
      */
-    static toggleModifier(node, modifier) {
-        if (BEM.hasModifier(node, modifier)) {
-            BEM.removeModifier(node, modifier);
+    static toggleModifier(node, modifier, exp=!BEM.hasModifier(node, modifier)) {
+        if (exp) {
+            BEM.addModifier(node, modifier);
             return;
         }
-        BEM.addModifier(node, modifier);
+        BEM.removeModifier(node, modifier);
     }
 
 

@@ -268,11 +268,20 @@ describe('BEM', function() {
             BEM.addModifier(node, MODIFIER_NAME);
             expect(node.className).toBe(`${BLOCK_NAME} ${BLOCK_NAME}--${MODIFIER_NAME}`);
         });
+
+        it('should allow decision making based on exp (issue #9)', () => {
+            setFixtures(FIXTURE_BLOCK);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            BEM.addModifier(node, MODIFIER_NAME, false);
+            expect(node.className).not.toContain(MODIFIER_NAME);
+            BEM.addModifier(node, MODIFIER_NAME, true);
+            expect(node.className).toContain(MODIFIER_NAME);
+        });
     });
 
 
     describe('.removeModifier()', () => {
-        it('should be able to add multiple modifiers', () => {
+        it('should be able to remove multiple modifiers', () => {
             setFixtures(FIXTURE_BLOCK);
             let node = BEM.getBEMNode(BLOCK_NAME);
             BEM.addModifier(node, 'foo');
@@ -280,6 +289,8 @@ describe('BEM', function() {
             expect(node.className).toBe(`${BLOCK_NAME} ${BLOCK_NAME}--foo ${BLOCK_NAME}--bar`);
             BEM.removeModifier(node, 'foo');
             expect(node.className).toBe(`${BLOCK_NAME} ${BLOCK_NAME}--bar`);
+            BEM.removeModifier(node, 'bar');
+            expect(node.className).toBe(`${BLOCK_NAME}`);
         });
 
         it('should do nothing if no modifier is present', () => {
@@ -289,6 +300,17 @@ describe('BEM', function() {
 
             BEM.removeModifier(node, MODIFIER_NAME);
             expect(node.className).toBe(className);
+        });
+
+        it('should allow decision making based on exp (issue #9)', () => {
+            setFixtures(FIXTURE_BLOCK);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            BEM.addModifier(node, MODIFIER_NAME);
+            expect(node.className).toContain(MODIFIER_NAME);
+            BEM.removeModifier(node, MODIFIER_NAME, false);
+            expect(node.className).toContain(MODIFIER_NAME);
+            BEM.removeModifier(node, MODIFIER_NAME, true);
+            expect(node.className).not.toContain(MODIFIER_NAME);
         });
     });
 
@@ -310,6 +332,21 @@ describe('BEM', function() {
             expect(BEM.removeModifier).toHaveBeenCalled();
             node = BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME);
             expect(node.constructor.toString()).toContain('HTMLHeadingElement');
+        });
+
+        it('should allow decision making based on exp (issue #9)', () => {
+            setFixtures(FIXTURE_BLOCK_ELEMENT);
+            spyOn(BEM, 'addModifier').and.callThrough();
+            spyOn(BEM, 'removeModifier').and.callThrough();
+            let node = BEM.getBEMNode(BLOCK_NAME, ELEMENT_NAME);
+
+            BEM.toggleModifier(node, MODIFIER_NAME, false);
+            expect(BEM.removeModifier).toHaveBeenCalled();
+            expect(node.className).not.toContain(MODIFIER_NAME);
+
+            BEM.toggleModifier(node, MODIFIER_NAME, true);
+            expect(BEM.addModifier).toHaveBeenCalled();
+            expect(node.className).toContain(MODIFIER_NAME);
         });
     });
 

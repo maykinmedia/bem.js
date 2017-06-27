@@ -16,7 +16,8 @@ $ npm i bem.js --save
 
 ## Usage 
 
-Code examples in es6, library is es5 compatible.
+*Code examples in es6, library is es5 compatible.*
+*See [doc](doc/) for full API documentation.*
 
 
 **Selecting an element**
@@ -86,6 +87,11 @@ BEM.removeModifier(node, 'bar');  // node.className is now 'foo foo--baz'
 
 // Toggle a modifier
 BEM.toggleModifier(node, 'bar');
+
+// Add/remove modifier based on expression
+BEM.toggleModifier(node, 'bar', exp);  // If exp is true, add, remove otherwise
+BEM.addModifier(node, 'bar', exp);  // Only add if exp is true
+BEM.removeModifier(node, 'bar');  // Only remove if exp is true
 ```
 
 
