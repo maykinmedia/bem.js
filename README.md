@@ -16,7 +16,8 @@ $ npm i bem.js --save
 
 ## Usage 
 
-Code examples in es6, library is es5 compatible.
+*Code examples in es6, library is es5 compatible.*
+*See [doc](doc/) for full API documentation.*
 
 
 **Selecting an element**
