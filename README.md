@@ -58,6 +58,19 @@ BEM.getChildBEMNodes(node, 'block', 'element', 'modifier');
 import BEM from 'bem.js';
 
 
+// Returns '.block'
+BEM.getBEMSelector('block');
+
+// Returns '.block.block--modifier'
+BEM.getBEMSelector('block', false, 'modifier');
+
+// Returns '.block__element'
+BEM.getBEMSelector('block', 'element');
+
+// Returns '.block__element.block__element--modifier'
+BEM.getBEMSelector('block', 'element', 'modifier');
+
+
 // Returns 'block'
 BEM.getBEMClassName('block');
 
