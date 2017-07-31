@@ -65,6 +65,23 @@ class BEM {
     }
 
     /**
+     * Get a BEM (Block Element Modifier) (CSS) selector
+     * @param {string} block The outer block or component
+     * @param {string} [element] An optional element within the outer block
+     * @param {string} [modifier] An optional modifier or (e.g. state or theme) for a block/element
+     * @returns {string}
+     */
+    static getBEMSelector(block, element, modifier) {
+        let selector = '.' + BEM.getBEMClassName(block, element);
+
+        if (modifier) {
+            selector += '.' + BEM.getBEMClassName(block, element, modifier);
+        }
+
+        return selector;
+    }
+
+    /**
      * Get a BEM (Block Element Modifier) class name
      * @param {string} block The outer block or component
      * @param {string} [element] An optional element within the outer block
@@ -84,7 +101,6 @@ class BEM {
 
         return className;
     }
-
 
     /**
      * Add an additional class name with a specific modifier (--modifier) to a BEM (Block Element Modifier) element
