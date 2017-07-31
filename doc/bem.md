@@ -11,6 +11,7 @@ Contains static methods with BEM abstraction to DOM manipulation
     * [.getBEMNodes(block, [element], [modifier])](#BEM.getBEMNodes) ⇒ <code>NodeList</code>
     * [.getChildBEMNode(node, block, [element], [modifier])](#BEM.getChildBEMNode) ⇒ <code>HTMLElement</code>
     * [.getChildBEMNodes(node, block, [element], [modifier])](#BEM.getChildBEMNodes) ⇒ <code>HTMLElement</code>
+    * [.getBEMSelector(block, [element], [modifier])](#BEM.getBEMSelector) ⇒ <code>string</code>
     * [.getBEMClassName(block, [element], [modifier])](#BEM.getBEMClassName) ⇒ <code>string</code>
     * [.addModifier(node, modifier, [exp])](#BEM.addModifier)
     * [.removeModifier(node, modifier, [exp])](#BEM.removeModifier)
@@ -67,6 +68,19 @@ Get a child node by BEM (Block Element Modifier) description
 | Param | Type | Description |
 | --- | --- | --- |
 | node | <code>HTMLElement</code> | The parent node |
+| block | <code>string</code> | The outer block or component |
+| [element] | <code>string</code> | An optional element within the outer block |
+| [modifier] | <code>string</code> | An optional modifier or (e.g. state or theme) for a block/element |
+
+<a name="BEM.getBEMSelector"></a>
+
+### BEM.getBEMSelector(block, [element], [modifier]) ⇒ <code>string</code>
+Get a BEM (Block Element Modifier) (CSS) selector
+
+**Kind**: static method of <code>[BEM](#BEM)</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
 | block | <code>string</code> | The outer block or component |
 | [element] | <code>string</code> | An optional element within the outer block |
 | [modifier] | <code>string</code> | An optional modifier or (e.g. state or theme) for a block/element |
