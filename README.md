@@ -1,6 +1,9 @@
 [![Build Status](https://travis-ci.org/maykinmedia/bem.js.svg?branch=1.0)](https://travis-ci.org/maykinmedia/bem.js)
 [![Coverage Status](https://coveralls.io/repos/github/maykinmedia/bem.js/badge.svg?branch=master)](https://coveralls.io/github/maykinmedia/bem.js?branch=master)
 [![Code Climate](https://codeclimate.com/github/maykinmedia/bem.js/badges/gpa.svg)](https://codeclimate.com/github/maykinmedia/bem.js)
+[![Lintly](https://lintly.com/gh/maykinmedia/bem.js/badge.svg)](https://lintly.com/gh/maykinmedia/bem.js/)
+
+[![NPM](https://nodei.co/npm/bem.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/bem.js/)
 
 # bem.js
 
