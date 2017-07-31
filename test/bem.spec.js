@@ -31,7 +31,7 @@ const FIXTURE_BLOCK_ELEMENT = `
 
 const FIXTURE_BLOCK_ELEMENT_MODIFIED = `
     <article class="${BLOCK_NAME}">
-        <h1 class="${BLOCK_NAME}__${ELEMENT_NAME}--${MODIFIER_NAME}"></h1>
+        <h1 class="${BLOCK_NAME}__${ELEMENT_NAME} ${BLOCK_NAME}__${ELEMENT_NAME}--${MODIFIER_NAME}"></h1>
     </article>
 `;
 
@@ -200,6 +200,35 @@ describe('BEM', function() {
             let node = BEM.getBEMNode(BLOCK_NAME);
             expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME).constructor.toString()).toContain('NodeList');
             expect(BEM.getChildBEMNodes(node, CHILD_BLOCK_NAME, CHILD_ELEMENT_NAME, CHILD_MODIFIER_NAME)[0].constructor.toString()).toContain('HTMLImageElement');
+        });
+    });
+
+
+    describe('.getBEMSelector()', () => {
+        it('should be able to get a block selector', () => {
+            setFixtures(FIXTURE_BLOCK);
+            expect(BEM.getBEMSelector(BLOCK_NAME)).toBe('.' + BLOCK_NAME);
+            expect(document.querySelector(BEM.getBEMSelector(BLOCK_NAME)).constructor.toString()).toContain('HTMLElement');
+        });
+
+        it('should be able to get a modified block selector', () => {
+            setFixtures(FIXTURE_BLOCK_MODIFIED);
+            expect(BEM.getBEMSelector(BLOCK_NAME, false, MODIFIER_NAME)).toBe(`.${BLOCK_NAME}.${BLOCK_NAME}--${MODIFIER_NAME}`);
+            expect(document.querySelector(BEM.getBEMSelector(BLOCK_NAME, false, MODIFIER_NAME)).constructor.toString()).toContain('HTMLElement');
+
+        });
+
+        it('should be able to get a block element selector', () => {
+            setFixtures(FIXTURE_BLOCK_ELEMENT);
+            expect(BEM.getBEMSelector(BLOCK_NAME, ELEMENT_NAME)).toBe(`.${BLOCK_NAME}__${ELEMENT_NAME}`);
+            expect(document.querySelector(BEM.getBEMSelector(BLOCK_NAME, ELEMENT_NAME)).constructor.toString()).toContain('HTMLHeadingElement');
+        });
+
+        it('should be able to get a modified block element selector', () => {
+            setFixtures(FIXTURE_BLOCK_ELEMENT_MODIFIED);
+            let className = BEM.getBEMSelector(BLOCK_NAME, ELEMENT_NAME, MODIFIER_NAME);
+            expect(className).toBe(`.${BLOCK_NAME}__${ELEMENT_NAME}.${BLOCK_NAME}__${ELEMENT_NAME}--${MODIFIER_NAME}`);
+            expect(document.querySelector(className).constructor.toString()).toContain('HTMLHeadingElement');
         });
     });
 
