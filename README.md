@@ -4,6 +4,7 @@
 [![Lintly](https://lintly.com/gh/maykinmedia/bem.js/badge.svg)](https://lintly.com/gh/maykinmedia/bem.js/)
 
 [![NPM](https://nodei.co/npm/bem.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/bem.js/)
+[![Sauce Test Status](https://saucelabs.com/buildstatus/bemjs)](https://saucelabs.com/u/bemjs)
 
 # bem.js
 
