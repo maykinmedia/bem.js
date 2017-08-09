@@ -100,7 +100,7 @@ module.exports = function(config) {
         ],
 
         frameworks: [
-            'jasmine-ajax',
+            'jasmine-jquery',
             'jasmine'
         ],
 
