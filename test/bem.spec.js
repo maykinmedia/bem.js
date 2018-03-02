@@ -341,6 +341,17 @@ describe('BEM', function() {
             BEM.removeModifier(node, MODIFIER_NAME, true);
             expect(node.className).not.toContain(MODIFIER_NAME);
         });
+
+        it('should not remove partially matching modifier', () => {
+            setFixtures(FIXTURE_BLOCK);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            let modifier2 = MODIFIER_NAME + '2';
+            BEM.addModifier(node, modifier2);
+            BEM.addModifier(node, MODIFIER_NAME);
+            BEM.removeModifier(node, MODIFIER_NAME);
+            expect(BEM.hasModifier(node, MODIFIER_NAME)).toBeFalsy();
+            expect(BEM.hasModifier(node, modifier2)).toBeTruthy();
+        });
     });
 
 
