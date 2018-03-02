@@ -116,7 +116,7 @@ class BEM {
             return;
         }
 
-        [...node.classList].forEach(classListItem => {
+        [].forEach.call(node.classList, classListItem => {
             // Discard class names containing "--" (modifier pattern)
             if (classListItem.match('--')) {
                 return;
@@ -146,7 +146,7 @@ class BEM {
         }
 
         let regex = new RegExp(`--${modifier}$`, 'g');
-        [...node.classList].forEach(className => {
+        [].forEach.call(node.classList, className => {
            if (className.match(regex)) {
                node.classList.remove(className);
            }
