@@ -145,8 +145,12 @@ class BEM {
             return;
         }
 
-        let regex = new RegExp(`[^^\\s]+?--${modifier}\\s?`, 'g');  // Regex matching all class names containing "--" + modifier
-        node.className = node.className.replace(regex, '').trim();
+        let regex = new RegExp(`--${modifier}$`, 'g');
+        node.classList.forEach(className => {
+           if (className.match(regex)) {
+               node.classList.remove(className);
+           }
+        });
     }
 
 
