@@ -146,11 +146,8 @@ class BEM {
         }
 
         let regex = new RegExp(`--${modifier}$`, 'g');
-        [].forEach.call(node.classList, className => {
-           if (className && className.match(regex)) {
-               node.classList.remove(className);
-           }
-        });
+        let classNames = [].filter.call(node.classList, className => !className.match(regex));
+        node.className = classNames.join(' ');
     }
 
 

@@ -81,6 +81,9 @@ const FIXTURE_BROKEN_WHITESPACE_BLOCK = `
     <article class="${BLOCK_NAME} "></article>
 `;
 
+const FIXTURE_MIXED = `
+    <article class="${BLOCK_NAME} ${CHILD_BLOCK_NAME}"></article>
+`;
 
 
 describe('module', function() {
@@ -320,6 +323,16 @@ describe('BEM', function() {
             expect(node.className).toBe(`${BLOCK_NAME} ${BLOCK_NAME}--bar`);
             BEM.removeModifier(node, 'bar');
             expect(node.className).toBe(`${BLOCK_NAME}`);
+        });
+
+        it('should be able to remove multiple modifiers at once', () => {
+            setFixtures(FIXTURE_MIXED);
+            let node = BEM.getBEMNode(BLOCK_NAME);
+            BEM.addModifier(node, MODIFIER_NAME);
+            expect(node.className).toBe(`${BLOCK_NAME} ${CHILD_BLOCK_NAME} ${BLOCK_NAME}--${MODIFIER_NAME} ${CHILD_BLOCK_NAME}--${MODIFIER_NAME}`);
+            BEM.removeModifier(node, MODIFIER_NAME);
+            expect(node.className).toBe(`${BLOCK_NAME} ${CHILD_BLOCK_NAME}`);
+            expect(BEM.hasModifier(node, MODIFIER_NAME)).toBeFalsy();
         });
 
         it('should do nothing if no modifier is present', () => {
