@@ -52,12 +52,12 @@ class BEM {
     }
 
     /**
-     * Get a child node by BEM (Block Element Modifier) description
+     * Get multiple child nodes by BEM (Block Element Modifier) description
      * @param {HTMLElement} node The parent node
      * @param {string} block The outer block or component
      * @param {string} [element] An optional element within the outer block
      * @param {string} [modifier] An optional modifier or (e.g. state or theme) for a block/element
-     * @returns {HTMLElement}
+     * @returns {NodeList}
      */
     static getChildBEMNodes(node, block, element, modifier) {
         let selector = `.${BEM.getBEMClassName(block, element, modifier)}`;
